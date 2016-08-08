@@ -54,6 +54,7 @@ class FiltersModel extends AbstractPluginManagerModel
         $plugins  = parent::getPlugins();
         $plugins  = array_flip($plugins);
         $metadata = $this->metadata;
+        $plugins = array_merge($plugins, $metadata);
 
         array_walk($plugins, function (& $value, $key) use ($metadata) {
             if (! array_key_exists($key, $metadata)) {
